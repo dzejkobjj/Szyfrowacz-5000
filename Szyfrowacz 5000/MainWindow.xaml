@@ -1,0 +1,73 @@
+﻿<Window x:Class="Szyfrowacz_5000.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Szyfrowacz_5000"
+        mc:Ignorable="d"
+        ResizeMode="CanMinimize"
+        Title="Szyfrowacz 5000" Height="568.25" Width="542.5">
+    <Grid>
+        <TabControl RenderTransformOrigin="0.51,0.53">
+            <TabItem Header="Zaszyfruj">
+                <Grid>
+                    <Button Content="Wybierz plik" Click="OpenFileHandler" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Width="75" Height="26"/>
+                    <Label Name="FilePathLabel" HorizontalAlignment="Left" Margin="90,12,0,0" VerticalAlignment="Top" Width="428"/>
+
+                    <Label Content="Nazwa pliku: " Margin="10,43,410,0" Height="25" VerticalAlignment="Top"/>
+                    <Label Content="Rozmiar: " Margin="10,68,410,0" Height="25" VerticalAlignment="Top"/>
+                    <Label Content="Data utworzenia: " Margin="10,93,410,0" Height="25" VerticalAlignment="Top"/>
+
+                    <Label Name="FileNameLabel" Margin="123,43,12,0" Height="25" VerticalAlignment="Top"/>
+                    <Label Name="FileSizeLabel" Margin="123,68,12,0" Height="25" VerticalAlignment="Top"/>
+                    <Label Name="FileCreationDateLabel" Margin="123,93,12,0" Height="25" VerticalAlignment="Top"/>
+
+                    <ListBox Name="UsersListView" Margin="10,150,187,0" Height="105" VerticalAlignment="Top">
+                    </ListBox>
+
+                    <Label Content="Wprowadź nazwę użytkownika:" RenderTransformOrigin="1.39,-0.815" Margin="336,120,10,0" Height="25" VerticalAlignment="Top"/>
+                    <TextBox Name="UserNameTextBox" TextChanged="CheckLength" Height="23" TextWrapping="Wrap" Margin="346,150,10,0" VerticalAlignment="Top"/>
+
+                    <Button Content="Dodaj" Click="AddUserHandler" Margin="346,178,0,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="110" Name="AddPasswordButton" IsEnabled="False"/>
+                    <Separator Margin="346,208,10,0" Height="17" VerticalAlignment="Top"/>
+                    <Button Content="Usuń" Click="DeleteUserHandler" Margin="346,230,0,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="112"/>
+
+                    <Label Content="Tryb pracy:" Margin="0,260,410,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Right" Width="108"/>
+
+                    <RadioButton Content="ECB" Width="100" Margin="18,294,410,0" Height="25" VerticalAlignment="Top"/>
+                    <RadioButton Content="CBC" Width="100" Margin="123,294,305,0" Height="25" VerticalAlignment="Top"/>
+                    <RadioButton Content="CFB" Width="100" Margin="228,294,200,0" Height="25" VerticalAlignment="Top"/>
+                    <RadioButton Content="OFB" Width="100" Margin="333,294,95,0" Height="25" VerticalAlignment="Top"/>
+                    <Button Content="Zapisz jako..." Click="SaveResultFileHandler" HorizontalAlignment="Left" Margin="18,349,0,0" VerticalAlignment="Top" Width="88" Height="25"/>
+                    <Label Name="ResultFilePathLabel" HorizontalAlignment="Left" Margin="123,349,0,0" VerticalAlignment="Top" Height="25" Width="318"/>
+                    <Separator HorizontalAlignment="Left" Height="13" Margin="10,385,0,0" VerticalAlignment="Top" Width="508"/>
+                    <ProgressBar HorizontalAlignment="Left" Value="67" Height="10" Margin="10,411,0,0" VerticalAlignment="Top" Width="446"/>
+                    <Label Content="67%" HorizontalAlignment="Left" Margin="473,403,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Plik wynikowy:" HorizontalAlignment="Left" Margin="10,319,0,0" VerticalAlignment="Top" Height="25"/>
+                    <Button Content="SZYFRUJ!" HorizontalAlignment="Right" Margin="0,449,224,0" VerticalAlignment="Top" Width="100" Height="30"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Odszyfruj">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="256*"/>
+                        <RowDefinition Height="255*"/>
+                    </Grid.RowDefinitions>
+                    <Button Content="Wybierz plik" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
+                    <Label Content="c:\plik\wynikowy.sz5" HorizontalAlignment="Left" Margin="90,9,0,0" VerticalAlignment="Top" Width="300" Height="26"/>
+                    <Label Content="ID:" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Height="25" Width="55"/>
+                    <Label Content="Hasło:" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Height="25" Width="55"/>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="70,69,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="200"/>
+                    <TextBox TextWrapping="Wrap" Margin="70,99,0,0" HorizontalAlignment="Left" Width="200" Height="27" VerticalAlignment="Top"/>
+                    <Button Content="Zapisz jako..." HorizontalAlignment="Left" Margin="10,156,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
+                    <Label Content="c:\miejsce\docelowe\pliku.pdf" HorizontalAlignment="Left" Margin="90,156,0,55" Width="300"/>
+                    <ProgressBar HorizontalAlignment="Left" Value="67" Height="9" Margin="10,0,0,0" VerticalAlignment="Top" Width="446" Grid.Row="1"/>
+                    <Label Content="67%" HorizontalAlignment="Left" Margin="473,247,0,0" VerticalAlignment="Top" Height="26" Width="33" Grid.RowSpan="2"/>
+                    <Button Content="ODSZYFRUJ!" HorizontalAlignment="Right" Margin="0,48,224,0" VerticalAlignment="Top" Width="100" Height="30" Grid.Row="1"/>
+                </Grid>
+            </TabItem>
+
+
+        </TabControl>
+    </Grid>
+</Window>
