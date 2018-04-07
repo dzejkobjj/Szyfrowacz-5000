@@ -17,7 +17,7 @@ namespace Szyfrowacz_5000
         public User(string userId, string password)
         {
             this.userId = userId;
-            this.password = password;
+            ///this.password = password;
         }
         override public string ToString()
         {
